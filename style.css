@@ -1,0 +1,171 @@
+/* --- Basic Reset & Base Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Sarabun', sans-serif;
+    background-color: #f0f2f5; /* เทาอ่อนเพื่อให้สีน้ำเงินเด่น */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- Sidebar Style --- */
+.sidebar {
+    width: 280px;
+    height: 100vh;
+    background: #1F389C; /* สีหลักที่คุณเลือก */
+    position: fixed;
+    left: 0;
+    top: 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+
+.sidebar-header {
+    padding: 30px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.logo span { 
+    color: #8da2fb; /* สีน้ำเงินอ่อนสำหรับเน้นข้อความ */
+}
+
+.nav-links {
+    list-style: none;
+    padding: 20px 0;
+    flex-grow: 1;
+}
+
+.nav-links li a {
+    display: block;
+    padding: 15px 30px;
+    color: #d1d9ff; /* สีข้อความโทนน้ำเงินอ่อน */
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 1.1rem;
+}
+
+.nav-links li a:hover, .nav-links li a.active {
+    background: #2a49cc; /* สีน้ำเงินสว่างขึ้นเมื่อ Hover */
+    color: white;
+    border-left: 5px solid #ffffff; /* เปลี่ยนจากเขียวเป็นขาวให้ดูสะอาดตา */
+}
+
+.sidebar-footer {
+    padding: 20px;
+    font-size: 0.8rem;
+    text-align: center;
+    color: #8da2fb;
+}
+
+/* --- Main Content Area --- */
+.main-content {
+    margin-left: 280px;
+    transition: all 0.3s ease;
+}
+
+.hero {
+    height: 60vh;
+    background-image:url(waterfall.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #1F389C;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: 0.3s;
+    border: 1px solid #8da2fb;
+}
+
+.btn:hover {
+    background: #1F389C;
+    box-shadow: 0 5px 15px rgba(31, 56, 156, 0.4);
+}
+
+.container { padding: 50px 5%; }
+
+.section-title { 
+    color: #1F389C; 
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* --- Responsive Settings (Mobile) --- */
+#menu-toggle { display: none; }
+
+.hamburger {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1100;
+    cursor: pointer;
+    background: #1F389C;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        left: -280px;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    #menu-toggle:checked ~ .sidebar {
+        left: 0;
+    }
+
+    #menu-toggle:checked ~ .main-content {
+        transform: translateX(280px);
+        opacity: 0.5;
+    }
+}
+
+/* Footer สำหรับหน้ามือถือ/เนื้อหาล่างสุด */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #1F389C;
+    color: white;
+}
